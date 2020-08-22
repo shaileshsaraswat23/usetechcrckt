@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% extends 'base/main.html' %}
+{% block title_block %}
+    Players Details
+{% endblock %}
+{% block mainview %}
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Players List of {{teamname}} </h4>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            {% if data %}
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    First Name
+                  </th>
+                  <th>
+                    Last Name
+                  </th>
+                  <th>
+                    Player Image
+                  </th>
+                  <th>
+                    Total Match
+                  </th>
+                  <th>
+                    Total Run
+                  </th>
+                  <th>
+                    Max Run
+                  </th>
+                  <th>
+                    Max Wicket
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for ply in data %}
+
+                    <tr>
+                      <td>
+                        <p>{{ply.fname}}</p>
+                      </td>
+                      <td>
+                        <p>{{ply.lname}}</p>
+                      </td>
+                      <td>
+                        <img src="/media/{{ply.image}}" alt="" width="30",height="30">
+                      </td>
+                      <td>
+                        <p>{{ply.totalmatch}}</p>
+                      </td>
+                      <td>
+                        <p>{{ply.totalrun}}</p>
+                      </td>
+                      <td>
+                        <p>{{ply.run}}</p>
+                      </td>
+                      <td>
+                        <p>{{ply.wicket}}</p>
+                      </td>
+                    </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+            <p>No Record Found</p>
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            {% if match %}
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    Team
+                  </th>
+                  <th>
+                    winner
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for allmatches in match %}
+
+                <tr>
+                  <td>
+                    <a href="{% url 'match:matchdetails' allmatches.id  %}">{{allmatches.team_one}} vs {{allmatches.team_two}}</a>
+                  </td>
+                  <td>
+                    <p>{{allmatches.match_winner}}</p>
+                  </td>
+                  <td>
+                    <img src="/media/{{player.imageUri}}" alt="" width="30",height="30">
+
+                  </td>
+
+
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+            <p>No Record Found</p>
+            {% endif %}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

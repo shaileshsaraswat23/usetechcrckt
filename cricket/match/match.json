@@ -1,0 +1,1 @@
+[{"model": "match.matches", "pk": 3, "fields": {"team_one": 1, "team_two": 2, "match_winner": 1}}, {"model": "match.matches", "pk": 4, "fields": {"team_one": 1, "team_two": 3, "match_winner": 1}}, {"model": "match.matches", "pk": 6, "fields": {"team_one": 2, "team_two": 3, "match_winner": 2}}]

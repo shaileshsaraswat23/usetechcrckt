@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base/main.html' %}
+{% block title_block %}
+    Team Details
+{% endblock %}
+{% block mainview %}
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Team List</h4>
+          <a  href="{% url 'team:add_team' %}"><button class="btn btn-fill btn-primary">Add New</button></a>
+
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            {% if data %}
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Team Logo
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for teams in data %}
+                <tr>
+                  <td>
+
+                    <a href="{% url 'team:playerslist' teams.id  %}">{{teams.name}}</a>
+                  </td>
+                  <td>
+                    <img src="/media/{{teams.logouri}}" alt="" width="30",height="30">
+
+                  </td>
+
+
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+            <p>No Record Found</p>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

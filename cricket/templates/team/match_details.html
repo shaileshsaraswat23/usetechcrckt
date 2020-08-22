@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends 'base/main.html' %}
+{% block title_block %}
+    Match Details
+{% endblock %}
+{% block mainview %}
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Match Details </h4>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            {% if data %}
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                  Team  Name
+                  </th>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Runs
+                  </th>
+                  <th>
+                    Wicket
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for allmatches in data %}
+                <tr>
+                  <td>
+                    <p>{{allmatches.playerid.country}}</p>
+                  </td>
+                  <td>
+                    <p>{{allmatches.playerid.firstName}} {{allmatches.playerid.lastName}} </p>
+                  </td>
+                  <td>
+                    <p>{{allmatches.run}}</p>
+                  </td>
+                  <td>
+                    <!-- <img src="/media/{{player.imageUri}}" alt="" width="30",height="30"> -->
+                    <p>{{allmatches.wicket}}</p>
+                  </td>
+
+
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+            <p>No Record Found</p>
+            {% endif %}
+
+          </div>
+        </div>
+
+    
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
