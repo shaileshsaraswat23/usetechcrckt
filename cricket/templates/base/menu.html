@@ -1,0 +1,26 @@
+{% load static %}
+<!--
+  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+-->
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a href="javascript:void(0)" class="simple-text logo-normal">
+      Cricket Assignment
+    </a>
+  </div>
+  <ul class="nav">
+    <li class="active ">
+      <a href="{% url 'team:teamlist' %}">
+        <i class="tim-icons icon-puzzle-10"></i>
+        <p>Team List</p>
+      </a>
+    </li>
+    <li >
+      <a href="{% url 'player:newplayer' %}">
+        <i class="tim-icons icon-single-02"></i>
+        <p>Add Player</p>
+      </a>
+    </li>
+
+  </ul>
+</div>

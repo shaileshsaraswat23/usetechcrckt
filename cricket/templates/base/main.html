@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title_block %}
+           {% endblock %}
+    </title>
+    {# load head css #}
+    {% include 'base/header.html' %}
+
+  </head>
+  <body class="">
+    <div class="wrapper">
+      <div class="sidebar">
+
+      {# load sidebar menu #}
+      {% include 'base/menu.html' %}
+
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+      
+        <!-- End Navbar -->
+        <div class="content">
+         {# load main static files #}
+         {% block mainview %}
+         {% endblock %}
+        </div>
+        {# load footer files #}
+        {% include 'base/footer.html' %}
+      </div>
+    </div>
+{# load script files #}
+{% include 'base/scriptfile.html' %}
+    </body>
+</html>
